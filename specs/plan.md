@@ -18,6 +18,7 @@
   - As *Senhas dos Sites* serão criptografadas via **AES-256** utilizando uma chave derivada da senha mestre do usuário. O vetor de inicialização (IV) será armazenado junto ao registro. Dessa forma, se o arquivo SQLite for exposto, as senhas continuam ilegíveis.
 - **DP03 - Isolamento por Middleware:** Um middleware global capturará exceções inesperadas para formatá-las em `ProblemDetails` (HTTP 500), limpando stack traces e mensagens internas de infraestrutura do SQLite antes de responder ao cliente.
 - **DP04 - Restrição de Dependências Nuget:** Conforme a constituição do projeto, nenhuma biblioteca externa de criptografia ou validação (como FluentValidation) será adicionada sem uma justificativa prévia por escrito. Utilizaremos os recursos nativos do .NET 10 (`DataAnnotations` e `System.Security.Cryptography`).
+- **DP05 - Dependências de Teste:** O projeto de testes utilizará `xunit`, `Microsoft.NET.Test.Sdk` e `xunit.runner.visualstudio` para atender à stack definida na constituição e permitir descoberta e execução padrão dos testes com `dotnet test`. Nenhuma dependência adicional de teste será incluída nesta etapa.
 
 ## Modelo de dados
 

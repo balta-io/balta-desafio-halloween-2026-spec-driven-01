@@ -20,37 +20,6 @@
 - Slices não devem conhecer detalhes internos uns dos outros.
 - Código partilhado apenas quando for genuinamente comum: abstrações, opções de configuração, contratos transversais e utilitários seguros.
 
-### 1. GeneratePassword
-
-- Endpoint: `POST /api/v1/passwords`
-- Gera uma senha forte segundo o padrão definido.
-- Armazena a senha no SQLite.
-- Gera e devolve um GUID que identifica a senha.
-- Resposta deve conter, no mínimo: `id` (GUID), `password` e, opcionalmente, `createdAt`
-
-### 2. GetPasswordByGuid
-
-- Endpoint: `GET /api/v1/passwords/{guid}`
-- Recebe um GUID.
-- Procura a senha associada no SQLite.
-- Devolve a senha se o GUID existir.
-- Devolve `404 Not Found` se o GUID não existir.
-- Resposta deve conter, no mínimo: `id` e `password`.
-
-### Regras da senha
-
-- Comprimento mínimo: 16 caracteres.
-- Deve conter obrigatoriamente pelo menos um caractere especial.
-- Não pode conter espaços em branco, incluindo espaço, tabulação ou quebra de linha.
-- A senha é gerada com aleatoriedade criptográfica usando `RandomNumberGenerator`.
-- O comprimento máximo inicial é 128 caracteres.
-- Conjuntos permitidos:
-  - minúsculas: `abcdefghijklmnopqrstuvwxyz`
-  - maiúsculas: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-  - dígitos: `0123456789`
-  - especiais: `!@#$%^&*()-_=+[]{};:,.<>?/`
-- Caracteres ambíguos podem ser excluídos opcionalmente: `Il1O0`.
-
 ## Qualidade
 
 - Cada slice novo entra com testes unitários e, quando aplicável, testes de integração.

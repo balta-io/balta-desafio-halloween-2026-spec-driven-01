@@ -8,7 +8,7 @@
 - Base de dados: SQLite
 - ORM: Entity Framework Core com o provider SQLite.
 - Testes: xUnit, NSubstitute.
-- Documentação: OpenAPI integrado ao ASP.NET Core.
+- Documentação: OpenAPI/scalar.
 - Validação: validação nativa de Minimal APIs e/ou FluentValidation.
 - Observabilidade: logs estruturados com Serilog; métricas e health checks.
 

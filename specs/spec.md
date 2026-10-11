@@ -60,7 +60,7 @@ Considera-se concluído quando as duas operações funcionam de ponta a ponta, a
 | RN11 | Recuperação por identificador      | A API deve permitir recuperar uma senha previamente armazenada através do respetivo GUID, mediante os controlos de acesso definidos.                                                                                              | Enunciado              |
 | RN12 | Consistência da operação           | Se a persistência falhar, a API não deve devolver uma resposta de sucesso nem disponibilizar um GUID correspondente a um registo inexistente ou não persistido.                                                                   | Proposta               |
 | RN13 | Imutabilidade                      | Uma senha armazenada não pode ser alterada após a sua criação. A geração de uma nova senha deve originar um novo registo e um novo GUID.                                                                                          | Proposta               |
-| RN14 | Garantia de composição reforçada   | Caso seja adotada a política de composição reforçada, a senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um dígito, além de pelo menos um carácter especial.                                               | Proposta a confirmar   |
+| RN14 | Garantia de composição reforçada   | A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um dígito, além de pelo menos um carácter especial.                                               | Proposta confirmada    |
 
 ### Conjuntos de caracteres permitidos
 
@@ -94,7 +94,6 @@ Considera-se concluído quando as duas operações funcionam de ponta a ponta, a
 - Limite de taxa e protecção contra enumeração de GUIDs.
 - Alterar, eliminar ou expirar senhas, e listar as já geradas.
 - Parâmetros do cliente sobre a senha (comprimento, conjuntos de caracteres, número de senhas por pedido).
-- Rotação de chaves, KMS ou HSM; a cifra em repouso (secção 6) usa uma chave simples e configurável.
 - Auditoria e registo de quem consultou cada senha.
 - Interface gráfica, multi-tenant, versionamento da API e deployment.
 
@@ -113,4 +112,3 @@ Considera-se concluído quando as duas operações funcionam de ponta a ponta, a
 | CA09 | **Dado** um GUID bem formado que não existe, **quando** se chama o `GET`, **então** responde `404`.                                                                                     |
 | CA10 | **Dado** um identificador que não é GUID, **quando** se chama o `GET`, **então** responde `400`.                                                                                        |
 | CA11 | **Dado** uma falha simulada na gravação, **quando** se chama o `POST`, **então** responde `500` e não existe registo nem GUID devolvido.                                                |
-| CA12 | **Dado** a base de dados, **quando** se inspecciona a coluna da senha, **então** o valor não está em texto claro (se a história H5 e a decisão de segurança da secção 6 forem aceites). |

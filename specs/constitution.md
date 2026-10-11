@@ -19,6 +19,9 @@
 - Um slice pode conter: endpoint Minimal API, request/response, handler, validação, regras de domínio, mapeamentos e testes.
 - Slices não devem conhecer detalhes internos uns dos outros.
 - Código partilhado apenas quando for genuinamente comum: abstrações, opções de configuração, contratos transversais e utilitários seguros.
+- SEMPRE que um endpoint precisar de dados ou comportamento, injetar e chamar o serviço de aplicação correspondente.
+- NUNCA injetar DbContext diretamente num endpoint.
+- NUNCA colocar geração de senha, validação de senha ou consulta de senha diretamente no endpoint.
 
 ## Qualidade
 
